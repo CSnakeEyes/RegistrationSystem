@@ -45,6 +45,7 @@ public class ViewAllCoursesRegistrar extends JFrame {
 		
 		JLabel lblViewStudents = new JLabel("View all courses");
 		lblViewStudents.setBounds(182, 11, 88, 14);
+		lblViewStudents.setForeground(new Color(255, 255, 255));
 		contentPane.add(lblViewStudents);
 		
 		//Gets the current list of all courses in the database

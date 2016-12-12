@@ -1,3 +1,5 @@
+package regPrototype;
+
 import java.util.Iterator;
 import java.util.Random;
 import java.util.Set;
@@ -58,5 +60,10 @@ public class Course {
 			}
 		}
 		return null;
+	}
+	
+	public String toString2(){
+		  return this.department+" "+this.CRN+" "+this.name+" "+this.teacher.lastName+" "+
+		    this.teacher.firstName+" "+this.hours+" "+this.passed;
 	}
 }

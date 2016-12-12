@@ -1,7 +1,5 @@
 package regPrototype;
 
-
-
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
 
@@ -17,17 +15,12 @@ import java.awt.event.KeyListener;
 
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
-import javax.swing.JWindow;
-import javax.swing.SwingConstants;
 import javax.swing.JTextArea;
 import javax.swing.JLabel;
 import javax.swing.DropMode;
-import javax.swing.ImageIcon;
 
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
-import java.io.IOException;
-import java.net.URL;
 
 import javax.swing.JPasswordField;
 
@@ -41,25 +34,11 @@ public class homePage extends JFrame {
 	private JTextField textUserName;
 	private JPasswordField textPassword;
 	private static Database userDatabase = new Database();
+	private static User currentUser= null;
 	/**
 	 * Launch the application.
 	 */
-	public static void main(String[] args) throws IOException {
-		JWindow window = new JWindow();
-		window.getContentPane().add(
-		    new JLabel("", new ImageIcon(new URL("https://media.giphy.com/media/tbGNixbTnIyVW/giphy.gif")), SwingConstants.CENTER));
-		window.setBounds(500, 150, 572, 304);
-		window.setVisible(true);
-		try {
-		    Thread.sleep(5000);
-		} catch (InterruptedException e) {
-		    e.printStackTrace();
-		}
-		window.setVisible(false);
-		
-		window.dispose();
-
-		
+	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
@@ -71,6 +50,12 @@ public class homePage extends JFrame {
 			}
 		});
 	}
+	public static void setCurrentUser(User login){
+		currentUser= login;
+	}
+	public static User getCurrentUser(){
+		return currentUser;
+	}
 	public static Database getDatabase(){
 		return userDatabase;
 	}
@@ -79,6 +64,7 @@ public class homePage extends JFrame {
 			userDatabase.allRegistrars.add(new Registrar("Cristian", "Ayub", "cayub", "asdf1",userDatabase.allRegistrars));
 			userDatabase.allProfessors.add(new Professor("Jesus", "Juarez", "jjuarez", "asdf2","Computer Science", userDatabase.allProfessors));
 			userDatabase.allStudents.add(new Student("Gabriel", "Felix", "gmfelix", "asdf3", userDatabase.allStudents));
+			userDatabase.allStudents.add(new Student("Hugo", "Ocon", "hocon", "ho123", userDatabase.allStudents));
 			String user = textUserName.getText();
 			String pass = textPassword.getText();
 			user = user.toLowerCase();
@@ -165,3 +151,4 @@ public class homePage extends JFrame {
 		btnReset.addActionListener(new resetButtonListener());
 	}
 }
+

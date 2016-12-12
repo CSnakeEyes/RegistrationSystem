@@ -14,6 +14,7 @@ import java.awt.event.ActionEvent;
 import javax.swing.Action;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.awt.event.ActionListener;
 
 public class registrarHome extends JFrame {
 
@@ -67,6 +68,7 @@ public class registrarHome extends JFrame {
 			@Override
 			public void mousePressed(MouseEvent arg0) {
 				//Opens a new Register Student window, which displays a form that must be filled in order to add a new student
+				dispose();
 				new RegisterStudent().setVisible(true);
 			}
 		});
@@ -77,6 +79,7 @@ public class registrarHome extends JFrame {
 		btnViewStudent.addMouseListener(new MouseAdapter() {
 			public void mousePressed(MouseEvent arg1) {
 				//Opens a new View Student window, which displays all of the students in the database
+				dispose();
 				new ViewStudents().setVisible(true);
 			}
 		});
@@ -87,6 +90,7 @@ public class registrarHome extends JFrame {
 		btnLookUpClasses.addMouseListener(new MouseAdapter() {
 			public void mouseClicked(MouseEvent e) {
 				//Opens a new addClassesRegistrar window, which contains a form in order to add a new course
+				dispose();
 				new addClassesRegistrar().setVisible(true);
 			}
 		});
@@ -98,11 +102,22 @@ public class registrarHome extends JFrame {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				//Opens a new viewAllCoursesRegistrar window, which contains all of the courses
+				dispose();
 				new ViewAllCoursesRegistrar().setVisible(true);
 			}
 		});
 		btnNewButton.setBounds(274, 140, 122, 23);
 		contentPane.add(btnNewButton);
+		
+		JButton btnLogOut = new JButton("Log Out");
+		btnLogOut.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				dispose();
+				new homePage().setVisible(true);
+			}
+		});
+		btnLogOut.setBounds(335, 227, 89, 23);
+		contentPane.add(btnLogOut);
 	}
 
 	private class SwingAction extends AbstractAction {

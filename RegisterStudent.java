@@ -18,6 +18,8 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.util.HashSet;
 import java.util.Set;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class RegisterStudent extends JFrame {
 
@@ -57,10 +59,16 @@ public class RegisterStudent extends JFrame {
 		
 		JLabel lblRegisterANew = new JLabel("Register a new student");
 		lblRegisterANew.setForeground(new Color(255, 255, 255));
-		lblRegisterANew.setBounds(150, 11, 112, 14);
+		lblRegisterANew.setBounds(150, 11, 133, 14);
 		contentPane.add(lblRegisterANew);
 		
 		JTextPane txtpnPleaseEnterThe = new JTextPane();
+		txtpnPleaseEnterThe.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				txtpnPleaseEnterThe.setText("");
+			}
+		});
 		txtpnPleaseEnterThe.setText("Please enter the following information");
 		txtpnPleaseEnterThe.setBounds(111, 36, 187, 20);
 		contentPane.add(txtpnPleaseEnterThe);
@@ -103,7 +111,7 @@ public class RegisterStudent extends JFrame {
 		contentPane.add(lblPassword);
 		
 		passwordField = new JPasswordField();
-		passwordField.setBounds(154, 164, 86, 20);
+		passwordField.setBounds(150, 164, 86, 20);
 		contentPane.add(passwordField);
 		
 		JButton btnConfirm = new JButton("Confirm");
@@ -121,5 +129,15 @@ public class RegisterStudent extends JFrame {
 		});
 		btnConfirm.setBounds(10, 227, 89, 23);
 		contentPane.add(btnConfirm);
+		
+		JButton btnBack = new JButton("Back");
+		btnBack.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				dispose();
+				new registrarHome().setVisible(true);
+			}
+		});
+		btnBack.setBounds(335, 227, 89, 23);
+		contentPane.add(btnBack);
 	}
 }

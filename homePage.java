@@ -1,5 +1,7 @@
 package regPrototype;
 
+
+
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
 
@@ -15,12 +17,17 @@ import java.awt.event.KeyListener;
 
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
+import javax.swing.JWindow;
+import javax.swing.SwingConstants;
 import javax.swing.JTextArea;
 import javax.swing.JLabel;
 import javax.swing.DropMode;
+import javax.swing.ImageIcon;
 
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.io.IOException;
+import java.net.URL;
 
 import javax.swing.JPasswordField;
 
@@ -37,7 +44,22 @@ public class homePage extends JFrame {
 	/**
 	 * Launch the application.
 	 */
-	public static void main(String[] args) {
+	public static void main(String[] args) throws IOException {
+		JWindow window = new JWindow();
+		window.getContentPane().add(
+		    new JLabel("", new ImageIcon(new URL("https://media.giphy.com/media/tbGNixbTnIyVW/giphy.gif")), SwingConstants.CENTER));
+		window.setBounds(500, 150, 572, 304);
+		window.setVisible(true);
+		try {
+		    Thread.sleep(5000);
+		} catch (InterruptedException e) {
+		    e.printStackTrace();
+		}
+		window.setVisible(false);
+		
+		window.dispose();
+
+		
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
@@ -143,4 +165,3 @@ public class homePage extends JFrame {
 		btnReset.addActionListener(new resetButtonListener());
 	}
 }
-

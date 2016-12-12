@@ -59,7 +59,7 @@ public class ViewStudents extends JFrame {
 		contentPane.setLayout(null);
 		
 		JLabel lblViewStudents = new JLabel("View Students");
-		lblViewStudents.setBounds(182, 11, 81, 14);
+		lblViewStudents.setBounds(182, 11, 68, 14);
 		lblViewStudents.setForeground(new Color(255, 255, 255));
 		contentPane.add(lblViewStudents);
 		

@@ -46,8 +46,8 @@ public class User {
 		allUsers.addAll(userDatabase.allStudents);
 		User current = findUser(allUsers, inputUsername);
 		if(current!= null){
-			String test = current.getClass().getName();
 			if(current.getPassword().equals(inputPassword)){
+				homePage.setCurrentUser(current);
 				switch(current.getClass().getName()){
 				case "regPrototype.Student":
 					return 1;
@@ -62,3 +62,4 @@ public class User {
 		}
 		return 0;
 	}
+}

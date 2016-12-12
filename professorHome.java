@@ -11,6 +11,8 @@ import javax.swing.JLabel;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import javax.swing.AbstractAction;
+import javax.swing.Action;
 
 public class professorHome extends JFrame {
 
@@ -60,20 +62,43 @@ public class professorHome extends JFrame {
 		contentPane.add(lblDepartment);
 		
 		JButton btnViewClasses = new JButton("View Classes");
+		btnViewClasses.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				viewClasses frame = new viewClasses();
+				frame.setVisible(true);
+
+			}
+		});
 		btnViewClasses.setBounds(274, 30, 122, 23);
 		contentPane.add(btnViewClasses);
 		
 		JButton btnViewStudents = new JButton("View Students");
 		btnViewStudents.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				viewStudents frame = new viewStudents();
+				frame.setVisible(true);
 			}
 		});
 		btnViewStudents.setBounds(274, 110, 122, 23);
 		contentPane.add(btnViewStudents);
 		
 		JButton btnAdviseStudent = new JButton("Advise Student");
+		btnAdviseStudent.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				adviceStudent frame = new adviceStudent();
+				frame.setVisible(true);
+			}
+		});
 		btnAdviseStudent.setBounds(274, 183, 122, 23);
 		contentPane.add(btnAdviseStudent);
 	}
 
+	private class SwingAction extends AbstractAction {
+		public SwingAction() {
+			putValue(NAME, "SwingAction");
+			putValue(SHORT_DESCRIPTION, "Some short description");
+		}
+		public void actionPerformed(ActionEvent e) {
+		}
+	}
 }

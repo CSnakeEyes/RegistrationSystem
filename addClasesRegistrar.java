@@ -14,6 +14,8 @@ import javax.swing.JButton;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.util.Set;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class addClassesRegistrar extends JFrame {
 
@@ -55,12 +57,12 @@ public class addClassesRegistrar extends JFrame {
 		
 		JLabel lblAddANew = new JLabel("Add a new course");
 		lblAddANew.setForeground(new Color(255, 255, 255));
-		lblAddANew.setBounds(164, 11, 99, 14);
+		lblAddANew.setBounds(164, 11, 126, 14);
 		contentPane.add(lblAddANew);
 		
 		JLabel lblNewLabel = new JLabel("Course Name");
 		lblNewLabel.setForeground(new Color(255, 255, 255));
-		lblNewLabel.setBounds(10, 39, 64, 14);
+		lblNewLabel.setBounds(10, 39, 86, 14);
 		contentPane.add(lblNewLabel);
 		
 		courseName = new JTextField();
@@ -70,7 +72,7 @@ public class addClassesRegistrar extends JFrame {
 		
 		JLabel lblNewLabel_1 = new JLabel("Department");
 		lblNewLabel_1.setForeground(new Color(255, 255, 255));
-		lblNewLabel_1.setBounds(127, 36, 64, 14);
+		lblNewLabel_1.setBounds(127, 36, 79, 14);
 		contentPane.add(lblNewLabel_1);
 		
 		department = new JTextField();
@@ -80,7 +82,7 @@ public class addClassesRegistrar extends JFrame {
 		
 		JLabel lblProfessor = new JLabel("Professor");
 		lblProfessor.setForeground(new Color(255, 255, 255));
-		lblProfessor.setBounds(237, 39, 53, 14);
+		lblProfessor.setBounds(237, 39, 64, 14);
 		contentPane.add(lblProfessor);
 		
 		teacher = new JTextField();
@@ -90,7 +92,7 @@ public class addClassesRegistrar extends JFrame {
 		
 		JLabel lblWaitingListCap = new JLabel("Waiting List Cap");
 		lblWaitingListCap.setForeground(new Color(255, 255, 255));
-		lblWaitingListCap.setBounds(10, 95, 86, 14);
+		lblWaitingListCap.setBounds(10, 95, 96, 14);
 		contentPane.add(lblWaitingListCap);
 		
 		waitingListCap = new JTextField();
@@ -100,7 +102,7 @@ public class addClassesRegistrar extends JFrame {
 		
 		JLabel lblStudentCap = new JLabel("Student Cap");
 		lblStudentCap.setForeground(new Color(255, 255, 255));
-		lblStudentCap.setBounds(127, 95, 64, 14);
+		lblStudentCap.setBounds(127, 95, 79, 14);
 		contentPane.add(lblStudentCap);
 		
 		studentCap = new JTextField();
@@ -110,7 +112,7 @@ public class addClassesRegistrar extends JFrame {
 		
 		JLabel lblCreditHours = new JLabel("Credit Hours");
 		lblCreditHours.setForeground(new Color(255, 255, 255));
-		lblCreditHours.setBounds(237, 95, 79, 14);
+		lblCreditHours.setBounds(237, 95, 96, 14);
 		contentPane.add(lblCreditHours);
 		
 		hours = new JTextField();
@@ -136,6 +138,16 @@ public class addClassesRegistrar extends JFrame {
 		});
 		btnConfirm.setBounds(17, 216, 89, 23);
 		contentPane.add(btnConfirm);
+		
+		JButton btnBack = new JButton("Back");
+		btnBack.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				dispose();
+				new registrarHome().setVisible(true);
+			}
+		});
+		btnBack.setBounds(335, 216, 89, 23);
+		contentPane.add(btnBack);
 	}
 
 }
